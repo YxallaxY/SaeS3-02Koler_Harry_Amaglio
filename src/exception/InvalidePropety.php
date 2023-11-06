@@ -1,5 +1,7 @@
 <?php
-class InvalidePropety extends Exception
+namespace touiteur\exception;
+class InvalidePropety extends \Exception
 {
+
 
 }

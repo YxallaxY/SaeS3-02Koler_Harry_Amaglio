@@ -1,0 +1,11 @@
+{
+
+  "description": "Le reseau sociale des personnes à l'heure",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "touiteur\\conf\\":"./conf",
+      "touiteur\\" : "./src"
+    }
+  }
+}

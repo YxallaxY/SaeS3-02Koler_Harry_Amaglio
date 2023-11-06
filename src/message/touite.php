@@ -1,5 +1,9 @@
 <?php
-require_once "exception/InvalidePropety";
+
+namespace touiteur\message;
+require_once "vendor/autoload.php";
+
+use touiteur\exception as ex;
 
 class touite
 {
@@ -44,14 +48,14 @@ class touite
      * Methode magique get permetant de recupere les parametre proteger
      * @param string $at nom du parametre a recuperer
      * @return mixed type du parametre renvoye
-     * @throws InvalidePropety class d'exception sur les propiete invalide
+     * @throws ex\InvalidePropety class d'exception sur les propiete invalide
      */
     public function __get(string $at): mixed
     {
         if (property_exists($this, $at)) {
             return $this->$at;
         } else {
-            throw new InvalidePropety("$at: invalide propety ");
+            throw new ex\InvalidePropety("$at: invalide propety ");
         }
     }
 
