@@ -16,6 +16,9 @@ class touite
     //date de publication du touite
     protected string $date;
 
+    //tableau contenant les tags du touite
+    protected array $tag;
+
     /**
      * @param string $aut auteur
      * @param string $cont contenu du touite
@@ -29,6 +32,9 @@ class touite
             $this->auteur = $aut;
             $this->contenu = $cont;
             $this->date = $date;
+            $this->tag = [];
+            
+            $this->tableauTag($cont);
         } else {
             echo ">:( le touite est trop long";
         }
@@ -42,6 +48,27 @@ class touite
     public function tailleTouite(string $cont)
     {
         return strlen($cont);
+    }
+
+    /**
+     * Trouve les tags du touite et les ajoutes dans le tableau tag
+     * @param string $cont contenu d'un touite
+     * @return void
+     */
+    public function tableauTag(string $cont)
+    {
+        if (str_contains($cont, "#")) {
+
+            //sépare le contenue en un tableau de string à partir des espaces
+            $explode = explode(' ', $cont);
+
+            foreach ($explode as $part) {
+                if (str_starts_with($part, "#")) {
+                    $this->tag[] = $part;
+                }
+            }
+
+        }
     }
 
     /**

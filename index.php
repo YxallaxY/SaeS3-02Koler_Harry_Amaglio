@@ -14,8 +14,10 @@
 require_once "vendor/autoload.php";
 
 
-$salut = new \touiteur\message\touite("Matias", "Touite de test", "07/11/2023");
-echo $salut->contenu;
+$salut = new \touiteur\message\touite("Matias", "Touite de test #SALUT #SAE", "07/11/2023");
+foreach ($salut->tag as $vp){
+    echo $vp."</br>";
+}
 
 $dispach = new \touiteur\dispatch\dispatcher();
 $dispach->run();
