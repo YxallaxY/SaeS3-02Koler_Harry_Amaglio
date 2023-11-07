@@ -21,8 +21,12 @@ class dispatcher
     public function run(): void
     {
         switch ($this->action) {
+            case("afficherListTouites"):
+                $action_class = new Action\afficherListTouites();
+                break;
             default:
-                $action_class = new Action\DefaultAction();
+                $action_class = new Action\defaultAction();
+                break;
 
         }
 

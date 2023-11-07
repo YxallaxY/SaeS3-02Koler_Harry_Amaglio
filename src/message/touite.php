@@ -33,7 +33,6 @@ class touite
             $this->contenu = $cont;
             $this->date = $date;
             $this->tag = [];
-            
             $this->tableauTag($cont);
         } else {
             echo ">:( le touite est trop long";

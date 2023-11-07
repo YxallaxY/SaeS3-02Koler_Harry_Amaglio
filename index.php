@@ -14,10 +14,7 @@
 require_once "vendor/autoload.php";
 
 
-$salut = new \touiteur\message\touite("Matias", "Touite de test #SALUT #SAE", "07/11/2023");
-foreach ($salut->tag as $vp){
-    echo $vp."</br>";
-}
+\touiteur\bd\ConnectionFactory::setConfig("conf/bd.ini");
 
 $dispach = new \touiteur\dispatch\dispatcher();
 $dispach->run();
