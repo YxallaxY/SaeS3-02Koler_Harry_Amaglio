@@ -3,3 +3,16 @@ h1{text-align: center;
     color: white;
 
 }
+.container {
+    width: 300px;
+    height: 300px;
+    border: 30px black solid;
+}
+
+.content_element{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightblue;
+    padding: 15px;
+    width: 120px;
+}

@@ -5,6 +5,7 @@
 /fuel/vendor
 *.idea
 /vendor
+/conf
 # the fuelphp document
 /docs/
 
