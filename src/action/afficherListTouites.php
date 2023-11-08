@@ -19,9 +19,14 @@ class afficherListTouites
         $query = $pdo->query('SELECT * FROM `touite` ORDER BY datePubli desc');
         $s = $s . "<div class='container'>";
         while ($data = $query->fetch()) {
-            $s = $s . "<div class='content_element'><br>" . $data['idTouite'] . " " . $data['idUtil'] . "</br>" . $data['contenue'] . "</br>" . "Likes : " . $data['note'] . " " . "date :" . $data['datePubli'] . "</br></div>";
+            $s = $s . "<div class='content_element'><br>" . $data['idTouite'] . " " . $data['idUtil'] . "</br>" . $data['contenueTouite'] . "</br>" . "Likes : " . $data['note'] . " " . "date :" . $data['datePubli'] . "</br></div>";
         }
         $s = $s . "</div>";
+
+
+        //$s = $s."<script language='javascript'>"
+
+
         return $s;
     }
 }

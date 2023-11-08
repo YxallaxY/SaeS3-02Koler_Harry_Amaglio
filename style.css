@@ -6,13 +6,15 @@ h1{text-align: center;
 .container {
     width: 300px;
     height: 300px;
-    border: 30px black solid;
+    border: 5px black solid;
+    overflow: hidden;
 }
 
 .content_element{
     margin-left: auto;
     margin-right: auto;
     background-color: lightblue;
+    overflow: hidden;
     padding: 15px;
     width: 120px;
 }
