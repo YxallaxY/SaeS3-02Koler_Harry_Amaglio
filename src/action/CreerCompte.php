@@ -5,6 +5,7 @@ namespace action;
 use exception\CompteException;
 use iutnc\deefy\db\ConnectionFactory;
 use iutnc\deefy\exception\AuthException as AuthExceptionAlias;
+use touiteur\compte\compteUtil;
 
 class CreerCompte
 {
@@ -78,7 +79,7 @@ class CreerCompte
     public static function Connection($email, $password)
     {
         $bd = ConnectionFactory::makeConnection();
-        $st = $bd->prepare("SELECT email,mdpUtil FROM email 
+        $st = $bd->prepare("SELECT nom,prenom,email,mdpUtil FROM email 
                                     INNER JOIN utilisateur ON email.idUtil = utilisateur.idUtil
                                     WHERE email = :email");
         $st->bindParam(':email', $email);
@@ -88,7 +89,7 @@ class CreerCompte
 
         if ($user && password_verify($password, $user['mdpUtil'])) {
             // Authentification réussie, renvoyer l'utilisateur
-            return new CreerCompte($user['email'], $user['passwd']);
+            return new compteUtil($user['nom'], $user['prenom'], $user['mdpUtil'], $user['email']);
         } else {
             throw new CompteException("La connexion a échoué.");
         }
