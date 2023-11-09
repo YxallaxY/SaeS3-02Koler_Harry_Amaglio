@@ -30,6 +30,9 @@ class dispatcher
             case("inscription"):
                 $action_class = new Action\Inscription();
                 break;
+            case("afficherTouite"):
+                $action_class = new Action\afficherTouite();
+                break;
             default:
                 $action_class = new Action\defaultAction();
                 break;

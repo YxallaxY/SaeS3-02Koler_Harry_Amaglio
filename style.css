@@ -1,15 +1,53 @@
-h1 {
-    text-align: center;
-    color: white;
-    font-size: 4em;
-
-}
-
 body {
-
+    display: grid;
+    grid-template-columns: 3fr; /* Auto for d1, 1fr for the rest */
+    grid-template-rows: 75px auto;
     background-color: rgb(16, 88, 91);
 }
 
+header {
+    grid-column: 1/span 3;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 25% 50% 25%; /* Auto for d1, 1fr for the rest */
+    grid-template-rows: 100%;
+    background-color: rgb(16, 88, 91);
+}
+
+.d1 {
+    grid-column: 2;
+}
+
+h1 {
+    margin: 0;
+    text-align: center;
+    color: white;
+    font-size: 4em;
+}
+
+.d2 {
+    grid-column: 3;
+    gap: 10px;
+    padding: 10px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 10% 90%; /* Auto for d1, 1fr for the rest */
+    grid-template-rows: 20% 80%;
+}
+
+nav {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+section {
+    width: 100%;
+    grid-column: 2;
+    grid-row: 1/span 2;
+
+}
 
 .container {
 
@@ -24,8 +62,8 @@ body {
     font-size: 2.5em;
     margin-top: 5%;
     box-sizing: border-box;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .content_element {
@@ -47,6 +85,7 @@ h2 {
 }
 
 .bouton {
+
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -71,4 +110,9 @@ h2 {
     text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
     background: rgba(78, 181, 186, 73);
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
