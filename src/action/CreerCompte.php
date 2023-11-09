@@ -11,7 +11,19 @@ class CreerCompte
     private $email;
     private $passwd;
     private $role;
-    
+
+    /**
+     * @param $email
+     * @param $passwd
+     * @param $role
+     */
+    public function __construct($email, $passwd, $role)
+    {
+        $this->email = $email;
+        $this->passwd = $passwd;
+        $this->role = $role;
+    }
+
     public function checkPasswordStrength(string $pass,
                                           int $minimumLength): bool {
 
@@ -24,7 +36,7 @@ class CreerCompte
         return true;
     }
 
-    public function CreerCompte($email, $passwd, $role){
+    public function CreerCompte($nom,$prenom,$email, $passwd, $role){
         // Vérifie la qualité du mot de passe
         if ($this->checkPasswordStrength($passwd,3)) {
             throw new CompteException("Le mot de passe doit avoir au moins 10 caractères.");
@@ -45,9 +57,12 @@ class CreerCompte
         $hashedPassword = password_hash($passwd, PASSWORD_DEFAULT);
 
         // Insère le nouvel utilisateur dans la base de données
-        $st = $bd->prepare("INSERT INTO utilisateur (email, passwd, role) VALUES (:email, :passwd, 1)");
-        $st->bindParam(':email', $email);
-        $st->bindParam(':passwd', $hashedPassword);
+        $st = $bd->prepare("INSERT INTO email (adresseUtil) VALUES (:adr)");
+        $st->bindParam(':adr',$email);
+        $st = $bd->prepare("INSERT INTO utilisateur (nomUtil,prenomUtil,mdpUtil) VALUES (:nom,;prenom,:mdp)");
+        $st->bindParam(':nom',$nom);
+        $st->bindParam(':prenom',$prenom);
+        $st->bindParam(':mdp', $hashedPassword);
 
         if ($st->execute()) {
             // Succès de l'inscription
@@ -61,15 +76,17 @@ class CreerCompte
     public static function Connection($email, $password)
     {
         $bd = ConnectionFactory::makeConnection();
-        $st = $bd->prepare("SELECT * FROM user WHERE email = :email");
+        $st = $bd->prepare("SELECT email,mdpUtil FROM email 
+                                    INNER JOIN utilisateur ON email.idUtil = utilisateur.idUtil
+                                    WHERE email = :email");
         $st->bindParam(':email', $email);
         $st->execute();
 
         $user = $st->fetch();
 
-        if ($user && password_verify($password, $user['passwd'])) {
+        if ($user && password_verify($password, $user['mdpUtil'])) {
             // Authentification réussie, renvoyer l'utilisateur
-            return new User($user['email'], $user['passwd'], $user['role']);
+            return new CreerCompte($user['email'], $user['passwd'], $user['role']);
         } else {
             throw new CompteException("La connexion a échoué.");
         }
