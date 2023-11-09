@@ -44,3 +44,18 @@ h2 {
     text-align: center;
 
 }
+
+.bouton{
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(78, 181, 186, 73) 0%, rgba(42, 241, 250, 98) 100%);
+    position:relative;
+    display:inline-block;
+    float:right;
+}
