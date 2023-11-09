@@ -21,7 +21,7 @@ class defaultAction
 
         $query = $pdo->query('SELECT * FROM `touite` ORDER BY note desc limit 10');
         $s = $s . "<div class='container'>";
-        $s = $s . "<h2>Affiche les 10 touite avec le plus de like</h2></br>";
+        $s = $s . "<h2>Affiche les 10 touite avec le plus de like</h2>";
         while ($data = $query->fetch()) {
             $s = $s . "<div class='content_element'>" . $data['idTouite'] . " " . $data['idUtil'] . "</br>" . $data['contenuTouite'] . "</br>" . "Likes : " . $data['note'] . " " . "date :" . $data['datePubli'] . "</br></div>";
         }

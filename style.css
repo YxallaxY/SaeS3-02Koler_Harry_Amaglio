@@ -1,9 +1,10 @@
-h1{
+h1 {
     text-align: center;
     color: white;
     font-size: 4em;
 
 }
+
 body {
 
     background-color: rgb(16, 88, 91);
@@ -27,7 +28,7 @@ body {
     margin-right: 10%;
 }
 
-.content_element{
+.content_element {
     margin-top: 2%;
     margin-left: 2%;
     margin-right: auto;
@@ -45,7 +46,7 @@ h2 {
 
 }
 
-.bouton{
+.bouton {
     border: 0;
     line-height: 2.5;
     padding: 0 20px;
@@ -55,7 +56,19 @@ h2 {
     text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
     background: linear-gradient(180deg, rgba(78, 181, 186, 73) 0%, rgba(42, 241, 250, 98) 100%);
-    position:relative;
-    display:inline-block;
-    float:right;
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+
+.page {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background: rgba(78, 181, 186, 73);
 }

@@ -10,8 +10,14 @@ class touite
     //contenu du touite
     protected string $contenu;
 
-    //auteur du touite
-    protected string $auteur;
+    //nom de l'auteur du touite
+    protected string $nom;
+
+    //prenom de l'auteur du touite
+    protected string $prenom;
+
+    //note du touite
+    protected int $note;
 
     //date de publication du touite
     protected string $date;
@@ -20,16 +26,20 @@ class touite
     protected array $tag;
 
     /**
-     * @param string $aut auteur
+     * @param string $nom nom de l'auteur
+     * @param string $prenom prenom de l'auteur
      * @param string $cont contenu du touite
-     * @param string $date date
+     * @param string $date date de publication du touite
+     * @param int $note note du touite, 0 par défaut
      * constructeur de touite
      */
-    public function __construct(string $aut, string $cont, string $date)
+    public function __construct(string $nom, string $prenom, string $cont, string $date, int $note = 0)
     {
         //Le touite doit avoir un contenu inferrieur à 235 caractere
         if ($this->tailleTouite($cont) <= 235) {
-            $this->auteur = $aut;
+            $this->nom = $nom;
+            $this->prenom = $prenom;
+            $this->note = $note;
             $this->contenu = $cont;
             $this->date = $date;
             $this->tag = [];
