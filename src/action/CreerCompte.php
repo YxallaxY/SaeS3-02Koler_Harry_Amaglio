@@ -11,22 +11,7 @@ class CreerCompte
     private $email;
     private $passwd;
     private $role;
-
-
-    // Méthode pour obtenir les playlists de l'utilisateur
-
-    /**
-     * @param $email
-     * @param $passwd
-     * @param $role
-     */
-    public function __construct($email, $passwd, $role)
-    {
-        $this->email = $email;
-        $this->passwd = $passwd;
-        $this->role = $role;
-    }
-
+    
     public function checkPasswordStrength(string $pass,
                                           int $minimumLength): bool {
 
