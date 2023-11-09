@@ -32,7 +32,7 @@ class CreerCompte
 
         // Vérifie si l'utilisateur avec cet email existe déjà
         $bd = ConnectionFactory::makeConnection();
-        $st = $bd->prepare("SELECT * FROM user WHERE email = :email");
+        $st = $bd->prepare("SELECT * FROM email WHERE adresseUtil = :email");
         $st->bindParam(':email', $email);
         $st->execute();
         $existingUser = $st->fetch();
@@ -45,7 +45,7 @@ class CreerCompte
         $hashedPassword = password_hash($passwd, PASSWORD_DEFAULT);
 
         // Insère le nouvel utilisateur dans la base de données
-        $st = $bd->prepare("INSERT INTO user (email, passwd, role) VALUES (:email, :passwd, 1)");
+        $st = $bd->prepare("INSERT INTO utilisateur (email, passwd, role) VALUES (:email, :passwd, 1)");
         $st->bindParam(':email', $email);
         $st->bindParam(':passwd', $hashedPassword);
 
