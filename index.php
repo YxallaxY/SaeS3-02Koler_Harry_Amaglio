@@ -6,8 +6,8 @@
     "text/css" href="style.css">
 </head>
 <body>
-<a href="src/pages/connexion.php"><button class="bouton">connexion</button> </a>
-<a href="src/pages/connexion.php"><button class="bouton">inscription</button> </a>
+<a href="src/pages/connexion.php?action=connexion"><button class="bouton">connexion</button> </a>
+<a href="src/pages/connexion.php?action=inscription"><button class="bouton">inscription</button> </a>
 <br>
 <h1>Touiteur</h1>
 

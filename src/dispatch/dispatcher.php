@@ -24,6 +24,12 @@ class dispatcher
             case("afficherListTouites"):
                 $action_class = new Action\afficherListTouites();
                 break;
+            case("connexion"):
+                $action_class = new Action\Connexion();
+                break;
+            case("inscription"):
+                $action_class = new Action\Inscription();
+                break;
             default:
                 $action_class = new Action\defaultAction();
                 break;
