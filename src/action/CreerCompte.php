@@ -11,6 +11,8 @@ class CreerCompte
     private $email;
     private $passwd;
     private $role;
+    private $nom;
+    private $prenom;
 
     /**
      * @param $email
@@ -86,7 +88,7 @@ class CreerCompte
 
         if ($user && password_verify($password, $user['mdpUtil'])) {
             // Authentification réussie, renvoyer l'utilisateur
-            return new CreerCompte($user['email'], $user['passwd'], $user['role']);
+            return new CreerCompte($user['email'], $user['passwd']);
         } else {
             throw new CompteException("La connexion a échoué.");
         }
