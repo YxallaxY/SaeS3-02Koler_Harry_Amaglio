@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Touiteur</h1>
-<div>
+
 
 <?php
 
@@ -18,6 +18,3 @@ require_once "vendor/autoload.php";
 
 $dispach = new \touiteur\dispatch\dispatcher();
 $dispach->run();
-
-
-

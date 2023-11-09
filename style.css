@@ -1,11 +1,11 @@
-h1{text-align: center;
+h1{
+    text-align: center;
     color: white;
-
+    font-size: 4em;
 
 }
 body {
-    display: grid;
-    grid-template-rows: repeat(3, 4em);
+
     background-color: rgb(16, 88, 91);
 }
 
