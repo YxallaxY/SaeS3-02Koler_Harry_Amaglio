@@ -37,21 +37,20 @@ class afficherListTouites
             $touites[$indice] = new touite($data['nomUtil'], $data['prenomUtil'], $data['contenuTouite'], $data['datePubli'], $data['note']);
             $s = $s . "<a href='?action=afficherTouite&courrant=$indice'><div class='content_element' xmlns=\"http://www.w3.org/1999/html\">" . $touites[$indice]->nom . " " . $touites[$indice]->prenom . "</br>" . $touites[$indice]->contenu . "</br>" . "Likes : " . $touites[$indice]->note . " " . "date :" . $touites[$indice]->date . '</br></div></a>';
             $indice += 1;
-            //$s = $s . "<div class='content_element'><br>" . $data['idTouite'] . " " . $data['idUtil'] . "</br>" . $data['contenuTouite'] . "</br>" . "Likes : " . $data['note'] . " " . "date :" . $data['datePubli'] . "</br></div>";
         }
-        $_SESSION['tabTouite']= $touites;
+        $_SESSION['tabTouite'] = $touites;
         if (sizeof($touites) == 10) {
-            $i = $i+10;
+            $i = $i + 10;
             $s = $s . "<a href='?action=afficherListTouites&start=$i'><button class='page'>next</button> </a>";
         } else {
             if (isset($_GET["start"])) {
                 if ($_GET["start"] >= 10) {
-                    $i = $i-10;
+                    $i = $i - 10;
                     $s = $s . "<a href='?action=afficherListTouites&start=$i'><button class='page'>prev</button> </a>";
                 }
             }
         }
-        $s = $s .'</div>';
+        $s = $s . '</div>';
 
         return $s;
     }

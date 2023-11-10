@@ -12,10 +12,10 @@
 <header>
     <div class="d1"><h1>Touiteur</h1></div>
     <div class="d2">
-        <a href="src/pages/connexion.php?action=connexion">
+        <a href="?action=connexion">
             <button class="bouton">connexion</button>
         </a>
-        <a href="src/pages/connexion.php?action=inscription">
+        <a href="?action=inscription">
             <button class="bouton">inscription</button>
         </a>
     </div>

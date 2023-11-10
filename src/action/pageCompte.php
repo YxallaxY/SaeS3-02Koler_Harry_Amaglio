@@ -20,7 +20,7 @@ class pageCompte
         session_start();
         $pdo = \touiteur\bd\ConnectionFactory::makeConnection();
 
-        $compte = new compteUtil("amaglio", "matias", "123456", "matias@ama.com");
+        $compte = $_SESSION['compteCourrant'];
         $s = "<div class = container><h2>" . $compte->prenomUtil . "  " . $compte->nomUtil . "</h2>";
         $query = $pdo->query('SELECT * FROM `touite` Inner join Utilisateur on utilisateur.idUtil = touite.idUtil
                        Inner join email on email.idutil = touite.idutil 
