@@ -72,4 +72,10 @@ class Inscription
             return false;
         }
     }
+
+    public function execute():string
+    {
+        $bd = ConnectionFactory::makeConnection();
+
+    }
 }

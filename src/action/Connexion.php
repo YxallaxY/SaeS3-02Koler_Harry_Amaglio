@@ -25,4 +25,10 @@ class Connexion
             throw new CompteException("La connexion a échoué.");
         }
     }
+
+    public function execute():string
+    {
+        session_start();
+
+    }
 }
