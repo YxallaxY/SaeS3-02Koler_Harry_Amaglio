@@ -4,7 +4,6 @@ namespace action;
 
 use exception\CompteException;
 use iutnc\deefy\db\ConnectionFactory;
-use iutnc\deefy\exception\AuthException as AuthExceptionAlias;
 use touiteur\compte\compteUtil;
 
 class CreerCompte
@@ -42,7 +41,7 @@ class CreerCompte
     public function CreerCompte($nom,$prenom,$email, $passwd, $role){
         // Vérifie la qualité du mot de passe
         if ($this->checkPasswordStrength($passwd,3)) {
-            throw new CompteException("Le mot de passe doit avoir au moins 10 caractères.");
+            throw new CompteException("Le mot de passe doit avoir au moins 3 caractères.");
         }
 
         // Vérifie si l'utilisateur avec cet email existe déjà
@@ -76,7 +75,7 @@ class CreerCompte
         }
     }
 
-    public static function Connection($email, $password)
+    public static function Connexion($email, $password)
     {
         $bd = ConnectionFactory::makeConnection();
         $st = $bd->prepare("SELECT nom,prenom,email,mdpUtil FROM email 
@@ -93,5 +92,9 @@ class CreerCompte
         } else {
             throw new CompteException("La connexion a échoué.");
         }
+    }
+
+    public function execute():string{
+
     }
 }
