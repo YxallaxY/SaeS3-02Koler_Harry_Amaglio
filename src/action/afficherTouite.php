@@ -15,8 +15,8 @@ class afficherTouite
 
     public function execute(): string
     {
-        session_start();
 
+        session_start();
         $pdo = \touiteur\bd\ConnectionFactory::makeConnection();
         $touite = $_SESSION['tabTouite'][$_GET['courrant']];
         $query = $pdo->query("SELECT * FROM `Utilisateur` Inner join touite on utilisateur.idUtil = touite.idUtil

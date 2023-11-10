@@ -48,16 +48,13 @@ class Inscription
         $hashedPassword = password_hash($passwd, PASSWORD_DEFAULT);
 
         // Insère le nouvel utilisateur dans la base de données
-        $st = $bd->prepare("INSERT INTO email (adresseUtil) VALUES '".$email."'");
-        $st = $bd->prepare("INSERT INTO utilisateur (nomUtil,prenomUtil,mdpUtil) VALUES ('".$nom."','".$prenom."','".$hashedPassword."')");
 
-        if ($st->execute()) {
-            // Succès de l'inscription
-            return true;
-        } else {
-            // Échec de l'inscription
-            return false;
-        }
+        $st = $bd->prepare("INSERT INTO utilisateur (nomUtil,prenomUtil,mdpUtil) VALUES ('".$nom."','".$prenom."','".$hashedPassword."')");
+        $st->execute();
+
+        $st = $bd->prepare("INSERT INTO email (idUtil,adresseUtil) VALUES ((SELECT idUtil FROM utilisateur where nomUtil ='".$nom."'),'".$email."')");
+        $st->execute();
+
     }
 
     public function execute():string
@@ -69,15 +66,16 @@ class Inscription
             $e = $_POST["email"];
             $pwd = $_POST["Password"];
             self::CreerCompte($n,$p,$e,$pwd);
+            $s = "ça marche bien";
         }
         $s = '<div class="container">';
         $s = $s . "<h2>Inscription</h2>";
-        $s .= '<form id="f1">
-              <input type="text" placeholder="<Nom>" >
-              <input type="text" placeholder="<Prenom>" >
-              <input type="text" placeholder="<email>" >
-              <input type="password" placeholder="<Password>">
-              <button type="submit">Valider</button>
+        $s .= '<form id="f1" action="?action=inscription" method="post">
+                <input type="text" name = "Nom" placeholder="<Nom>" >
+                <input type="text" name = "Prenom" placeholder="<Prenom>" >
+                <input type="text" name = "email" placeholder="<email>" >
+                <input type="password" name = "Password" placeholder="<Password>">
+                <button type="submit">Valider</button>
               </form>';
         $s .= '</div>';
         return $s;

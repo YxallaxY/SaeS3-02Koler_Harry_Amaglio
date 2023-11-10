@@ -36,6 +36,9 @@ class dispatcher
             case("pageCompte"):
                 $action_class = new Action\pageCompte();
                 break;
+            case("ecrireTouite"):
+                $action_class = new Action\ecrireTouite();
+                break;
             default:
                 $action_class = new Action\defaultAction();
                 break;
