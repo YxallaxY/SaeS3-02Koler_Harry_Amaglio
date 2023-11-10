@@ -24,8 +24,11 @@
 
 <div class="main">
     <nav>
+        <a href="?">
+            <button class="boutonNav">Accueil</button>
+        </a>
         <a href="?action=afficherListTouites">
-            <button>Afficher la liste des derniers Touites</button>
+            <button class="boutonNav">Afficher la liste des derniers Touites</button>
         </a>
     </nav>
     <section>
