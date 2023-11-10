@@ -19,7 +19,7 @@ class afficherListTouites
         session_start();
 
         $s = '<div class="container">';
-        $s = $s . "<h2>Affiche les touite les plus recent</h2>";
+        $s = $s . "<h2>Affiche les touites les plus récents</h2>";
 
         $pdo = ConnectionFactory::makeConnection();
 
