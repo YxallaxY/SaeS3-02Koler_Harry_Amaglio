@@ -87,7 +87,7 @@ class Inscription
             $p = $_POST["Prenom"];
             $e = $_POST["email"];
             $pwd = $_POST["Password"];
-            $this -> CreerCompte($n,$p,$e,$pwd);
+            self::CreerCompte($n,$p,$e,$pwd);
         }
         $s = '<div class="container">';
         $s = $s . "<h2>Inscription</h2>";
@@ -98,7 +98,7 @@ class Inscription
               <input type="text" placeholder="<Password>" >
               <button type="submit">Valider</button>
               </form>';
-
+        $s .= '</div>';
         return $s;
     }
 }

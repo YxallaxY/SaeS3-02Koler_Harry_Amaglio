@@ -30,8 +30,18 @@ class Connexion
     public function execute():string
     {
         session_start();
+
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            $pwd = $_POST['Passord'];
+            $em = $_POST['email'];
+            self::Connexion($em,$pwd);
+        }
+
         $s = '<div class="container">';
-        $s = $s . "<h2>Inscription</h2>";
+        $s = $s . "<h2>Connexion</h2>";
+        $s .= '<form><input type="text" placeholder="<email>" >
+              <input type="text" placeholder="<Password>" >
+              <button type="submit">Valider</button></form>';
 
         return $s;
     }
