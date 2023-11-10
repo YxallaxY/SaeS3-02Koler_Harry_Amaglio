@@ -13,8 +13,7 @@ class Connexion
         $bd = ConnectionFactory::makeConnection();
         $st = $bd->prepare("SELECT nom,prenom,email,mdpUtil FROM email 
                                     INNER JOIN utilisateur ON email.idUtil = utilisateur.idUtil
-                                    WHERE email = :email");
-        $st->bindParam(':email', $email);
+                                    WHERE email = '".$email."'");
         $st->execute();
 
         $user = $st->fetch();

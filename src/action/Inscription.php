@@ -36,8 +36,7 @@ class Inscription
 
         // Vérifie si l'utilisateur avec cet email existe déjà
         $bd = ConnectionFactory::makeConnection();
-        $st = $bd->prepare("SELECT * FROM email WHERE adresseUtil = :email");
-        $st->bindParam(':email', $email);
+        $st = $bd->prepare("SELECT * FROM email WHERE adresseUtil = '".$email."'");
         $st->execute();
         $existingUser = $st->fetch();
 
@@ -49,12 +48,8 @@ class Inscription
         $hashedPassword = password_hash($passwd, PASSWORD_DEFAULT);
 
         // Insère le nouvel utilisateur dans la base de données
-        $st = $bd->prepare("INSERT INTO email (adresseUtil) VALUES (:adr)");
-        $st->bindParam(':adr',$email);
-        $st = $bd->prepare("INSERT INTO utilisateur (nomUtil,prenomUtil,mdpUtil) VALUES (:nom,;prenom,:mdp)");
-        $st->bindParam(':nom',$nom);
-        $st->bindParam(':prenom',$prenom);
-        $st->bindParam(':mdp', $hashedPassword);
+        $st = $bd->prepare("INSERT INTO email (adresseUtil) VALUES '".$email."'");
+        $st = $bd->prepare("INSERT INTO utilisateur (nomUtil,prenomUtil,mdpUtil) VALUES ('".$nom."','".$prenom."','".$hashedPassword."')");
 
         if ($st->execute()) {
             // Succès de l'inscription
