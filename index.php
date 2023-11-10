@@ -12,12 +12,29 @@
 <header>
     <div class="d1"><h1>Touiteur</h1></div>
     <div class="d2">
-        <a href="?action=connexion">
-            <button class="bouton">connexion</button>
-        </a>
-        <a href="?action=inscription">
-            <button class="bouton">inscription</button>
-        </a>
+        <?php
+        if (isset($_SESSION['Connection'])) {
+            $_SESSION['compteCourant']=$_SESSION['Connection'];
+            echo <<<BOUTON
+                <a href="?action=pageCompte">
+                    <button class="bouton">Page perso</button>
+                </a>
+                <a href="?ecrireTouite"
+                    <button class="bouton">ecrire Un touite</button>
+                </a>
+                BOUTON;
+        }else{
+            echo <<<BOUTON
+                <a href="?action=connexion">
+                    <button class="bouton">connexion</button>
+                </a>
+                <a href="?action=inscription">
+                    <button class="bouton">inscription</button>
+                </a>
+                BOUTON;
+        }
+        ?>
+
     </div>
 
 </header>
