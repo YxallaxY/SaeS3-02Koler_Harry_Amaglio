@@ -24,7 +24,7 @@ class compteUtil
         elseif (strlen($mdp) > 200){
             echo '<script>window.alert("mot de passe trop long (max 200 caractères)")</script>';
         }
-        elseif (str_contains($email, '@') || strlen($email) > 50){
+        elseif (!str_contains($email, '@') || strlen($email) > 50){
             echo '<script>window.alert("email trop long (max 50 caractères) ou non valide (@ manquant)")</script>';
         }
         else{
@@ -32,6 +32,21 @@ class compteUtil
             $this->prenomUtil = $prenom;
             $this->mdpUtil = $mdp;
             $this->emailUtil = $email;
+        }
+    }
+
+    /**
+     * Methode magique get permetant de recupere les parametre proteger
+     * @param string $at nom du parametre a recuperer
+     * @return mixed type du parametre renvoye
+     * @throws ex\InvalidePropety class d'exception sur les propiete invalide
+     */
+    public function __get(string $at): mixed
+    {
+        if (property_exists($this, $at)) {
+            return $this->$at;
+        } else {
+            throw new ex\InvalidePropety("$at: invalide propety ");
         }
     }
 

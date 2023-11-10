@@ -33,6 +33,9 @@ class dispatcher
             case("afficherTouite"):
                 $action_class = new Action\afficherTouite();
                 break;
+            case("pageCompte"):
+                $action_class = new Action\pageCompte();
+                break;
             default:
                 $action_class = new Action\defaultAction();
                 break;

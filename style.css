@@ -63,11 +63,13 @@ section {
     align-items: center;
 
     background: linear-gradient(180deg, rgba(78, 181, 186, 73) 0%, rgba(42, 241, 250, 98) 100%);
-    font-size: 2.5em;
+    font-size: 1.5em;
     margin-top: 5%;
     box-sizing: border-box;
     margin-left: 5%;
     margin-right: 5%;
+
+
 }
 
 .content_element {
@@ -133,7 +135,20 @@ h2 {
     background: rgba(78, 181, 186, 73);
 }
 
+#pageDiv{
+    display: flex;
+
+}
+
+#pageContenue{
+    text-align: center;
+}
 a {
     text-decoration: none;
     color: black;
+}
+
+.boxPage{
+    background-color: white;
+    border-radius: 10px;
 }
