@@ -3,6 +3,9 @@
 namespace touiteur\action;
 
 use exception\CompteException;
+use touiteur\bd\ConnectionFactory;
+
+require_once 'vendor/autoload.php';
 
 class Inscription
 {
@@ -15,14 +18,17 @@ class Inscription
     /**
      * @param $email
      * @param $passwd
-     * @param $role
+     * @param $nom
+     * @param $prenom
      */
-    public function __construct($email, $passwd, $role)
+    public function __construct($email, $passwd, $nom, $prenom)
     {
         $this->email = $email;
         $this->passwd = $passwd;
-        $this->role = $role;
+        $this->nom = $nom;
+        $this->prenom = $prenom;
     }
+
 
     public function checkPasswordStrength(string $pass,
                                           int $minimumLength): bool {
@@ -76,6 +82,23 @@ class Inscription
     public function execute():string
     {
         $bd = ConnectionFactory::makeConnection();
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            $n = $_POST["Nom"];
+            $p = $_POST["Prenom"];
+            $e = $_POST["email"];
+            $pwd = $_POST["Password"];
+            $this -> CreerCompte($n,$p,$e,$pwd);
+        }
+        $s = '<div class="container">';
+        $s = $s . "<h2>Inscription</h2>";
+        $s .= '<form id="f1">
+              <input type="text" placeholder="<Nom>" >
+              <input type="text" placeholder="<Prenom>" >
+              <input type="text" placeholder="<email>" >
+              <input type="text" placeholder="<Password>" >
+              <button type="submit">Valider</button>
+              </form>';
 
+        return $s;
     }
 }

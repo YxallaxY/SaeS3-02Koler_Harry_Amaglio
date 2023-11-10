@@ -4,6 +4,7 @@ namespace touiteur\action;
 
 use exception\CompteException;
 use touiteur\compte\compteUtil;
+require_once 'vendor/autoload.php';
 
 class Connexion
 {
@@ -29,6 +30,9 @@ class Connexion
     public function execute():string
     {
         session_start();
+        $s = '<div class="container">';
+        $s = $s . "<h2>Inscription</h2>";
 
+        return $s;
     }
 }
