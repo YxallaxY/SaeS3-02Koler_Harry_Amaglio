@@ -40,7 +40,7 @@ class Connexion
         $s = '<div class="container">';
         $s = $s . "<h2>Connexion</h2>";
         $s .= '<form><input type="text" placeholder="<email>" >
-              <input type="text" placeholder="<Password>" >
+              <input type="password" placeholder="<Password>" >
               <button type="submit">Valider</button></form>';
 
         return $s;

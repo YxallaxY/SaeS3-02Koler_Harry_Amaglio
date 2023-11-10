@@ -81,7 +81,7 @@ class Inscription
               <input type="text" placeholder="<Nom>" >
               <input type="text" placeholder="<Prenom>" >
               <input type="text" placeholder="<email>" >
-              <input type="text" placeholder="<Password>" >
+              <input type="password" placeholder="<Password>">
               <button type="submit">Valider</button>
               </form>';
         $s .= '</div>';
