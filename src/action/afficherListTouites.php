@@ -28,7 +28,7 @@ class afficherListTouites
         } else {
             $i = 0;
         }
-        $query = $pdo->query('SELECT * FROM `touite` Inner join Utilisateur on utilisateur.idUtil = touite.idUtil ORDER BY datePubli desc LIMIT 10 OFFSET ' . $i);
+        $query = $pdo->query('SELECT * FROM `touite` Inner join utilisateur on utilisateur.idUtil = touite.idUtil ORDER BY datePubli desc LIMIT 10 OFFSET ' . $i);
 
         $touites = [];
         $indice = 0;
