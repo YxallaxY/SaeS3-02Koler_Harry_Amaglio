@@ -15,20 +15,6 @@ class Inscription
     private $nom;
     private $prenom;
 
-    /**
-     * @param $email
-     * @param $passwd
-     * @param $nom
-     * @param $prenom
-     */
-    public function __construct($email, $passwd, $nom, $prenom)
-    {
-        $this->email = $email;
-        $this->passwd = $passwd;
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-    }
-
 
     public function checkPasswordStrength(string $pass,
                                           int $minimumLength): bool {
@@ -42,7 +28,7 @@ class Inscription
         return true;
     }
 
-    public function CreerCompte($nom,$prenom,$email, $passwd, $role){
+    public function CreerCompte($nom,$prenom,$email, $passwd, $role=1){
         // Vérifie la qualité du mot de passe
         if ($this->checkPasswordStrength($passwd,3)) {
             throw new CompteException("Le mot de passe doit avoir au moins 3 caractères.");

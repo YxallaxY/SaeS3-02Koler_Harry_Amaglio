@@ -34,7 +34,7 @@ class Connexion
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             $pwd = $_POST['Passord'];
             $em = $_POST['email'];
-            self::Connexion($em,$pwd);
+            $_SESSION['connection']=self::Connexion($em,$pwd);
         }
 
         $s = '<div class="container">';
