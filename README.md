@@ -18,6 +18,7 @@ Fonctionalités mise en places :
 - pagination Touite Matias Amaglio
 - Ecrire touite Matias Amaglio (non fonctionnelle )
 - page compte Matias Amaglio (affichage des personnes suivit, des tag suivit et des touites personnel)
+- Connection et Inscription à la bd et au site web Koler Maxime
   
 Taches réalisés :
 - mise en place webetu Matias Amaglio
