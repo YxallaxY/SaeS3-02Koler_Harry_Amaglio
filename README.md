@@ -23,6 +23,7 @@ Fonctionalités mise en places :
 Taches réalisés :
 - mise en place webetu Matias Amaglio
 
+Données du webetu:
 https://webetu.iutnc.univ-lorraine.fr/www/amaglio1u/
 amaglio matias matias@gmail.com matias123
 Lafable George Lafable@gmail.com laf123
